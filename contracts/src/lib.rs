@@ -1,4 +1,4 @@
-// #![doc = include_str!("../README.md")]
+
 #![allow(unused_variables)]
 
 #[macro_use]
@@ -17,7 +17,7 @@ use pbc_zk::Sbi32;
 use read_write_rpc_derive::ReadWriteRPC;
 use read_write_state_derive::ReadWriteState;
 
-/// Secret variable metadata. Unused for this contract, so we use a zero-sized struct to save space.
+/// Secret variable metadata. 
 #[derive(ReadWriteState, ReadWriteRPC, Debug)]
 #[repr(u8)]
 enum SecretVarType {
@@ -27,8 +27,8 @@ enum SecretVarType {
     SumWeights {},
 }
 
-/// Number of employees to wait for before starting computation. A value of 2 or below is useless.
-const MIN_NUM_EMPLOYEES: u32 = 3;
+/// Number of clients to wait for before starting computation.
+const MIN_NUM_CLIENTS: u32 = 5;
 
 /// This contract's state
 #[state]
@@ -37,8 +37,8 @@ struct ContractState {
     administrator: Address,
     /// Will contain the result (average) when computation is complete
     average_weights_result: Option<u32>,
-    /// Will contain the number of employees after starting the computation
-    num_employees: Option<u32>,
+    /// Will contain the number of clients after starting the computation
+    num_clients: Option<u32>,
 }
 
 /// Initializes contract
@@ -49,7 +49,7 @@ fn initialize(ctx: ContractContext, zk_state: ZkState<SecretVarType>) -> Contrac
     ContractState {
         administrator: ctx.sender,
         average_weights_result: None,
-        num_employees: None,
+        num_clients: None,
     }
 }
 
@@ -110,10 +110,10 @@ fn compute_average_Weights(
         zk_state.calculation_state,
     );
 
-    let num_employees = zk_state.secret_variables.len() as u32;
-    assert!(num_employees >= MIN_NUM_EMPLOYEES , "At least {MIN_NUM_EMPLOYEES} employees must have submitted and confirmed their inputs, before starting computation, but had only {num_employees}");
+    let num_clients = zk_state.secret_variables.len() as u32;
+    assert!(num_clients >= MIN_NUM_clients , "At least {MIN_NUM_CLIENTS} clients must have submitted and confirmed their inputs, before starting computation, but had only {num_clients}");
 
-    state.num_employees = Some(num_employees);
+    state.num_clients = Some(num_clients);
     (
         state,
         vec![],
@@ -165,8 +165,8 @@ fn open_sum_variable(
 
     let mut zk_state_changes = vec![];
     if let SecretVarType::SumWeights {} = opened_variable.metadata {
-        let num_employees = state.num_employees.unwrap();
-        state.average_weights_result = Some(result / num_employees);
+        let num_clients = state.num_clients.unwrap();
+        state.average_weights_result = Some(result / num_clients);
         zk_state_changes = vec![ZkStateChange::ContractDone];
     }
     (state, vec![], zk_state_changes)
