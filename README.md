@@ -21,6 +21,8 @@ The motivation for the same was derived from [this talk](https://youtu.be/TrrioY
 # How it works
 
 It is a **dual-side** platform where both a general user who wants their model to be trained and a client who will train the deep learning models uploaded by various users at their end using their own private datasets. 
+Following is the link to the deployed zk based smart contract deployed on Partisia blockchain:
+[Partisia Blockchain Browser](https://browser.testnet.partisiablockchain.com/contracts/030031ef6d22b69bd582b53753f133dc42280c891f)
 
 **User side:**
 
