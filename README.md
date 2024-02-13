@@ -55,6 +55,12 @@ Well, the answer is pretty straight forward for this one. Partisa Blockchain has
   *We leveraged the first two to create an ecosystem where machine learning can happen in a truly decentralised manner involving trustlessness & robust speed.*
 The concept of zk-nodes on partisia made it very logical & also much easier to build such an ecosystem compared to building it on any other chain.
 
+# Potential Impact
+
+The concept of Federated learning using MPC & POS has the potential to revolutionse how we train DL models today entirely. Private datasets such as healtcare & financial data can then be used worldwide to facilitate research while still remaining private. 
+
+Alos, the need for computing power at everyone's end can also be eased up as large clients with heavy computational powers can train models for research organisations & individual people as well.
+
 # What's next?
 
 We plan to continue the project. We'll go through more edge cases & increase the type of model variety that can be trained. We also plan to import the server to GoLang for decreasing latency. We wish to collaborate with Partisia for helping us to make this idea come to life utilising Partisia Blockchain's ecosystem.
