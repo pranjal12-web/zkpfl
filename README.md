@@ -12,6 +12,8 @@ Federated Learning is a privacy preserving scheme to train deep learning models.
 
 In a network of clients, you have to ensure that they are training models honestly so that the accuracy of the model improves. You can have malicious clients in a network that can sabotage the network and reduce model accuracy. We can solve this problem by leveraging a **Proof of Stake** architecture & **Partisia Blockchain's concept of MPC(Multi Party Computation) & BYOC(Bring your own coin)**
 
+[Federated Learning](https://vimeo.com/912619890?share=copy)
+
 # Foundations
 
 The foundation of this idea is this research paper on [Zero-Knowledge based Federated Learning](https://paperswithcode.com/paper/zkfl-zero-knowledge-proof-based-gradient) 
@@ -66,3 +68,13 @@ Alos, the need for computing power at everyone's end can also be eased up as lar
 # What's next?
 
 We plan to continue the project. We'll go through more edge cases & increase the type of model variety that can be trained. We also plan to import the server to GoLang for decreasing latency. We wish to collaborate with Partisia for helping us to make this idea come to life utilising Partisia Blockchain's ecosystem.
+
+# This is how our project looks like:
+![image](https://github.com/pranjal12-web/zkpfl/assets/67697534/1f6450b8-7a08-45eb-98d7-830185394f71)
+![image](https://github.com/pranjal12-web/zkpfl/assets/67697534/b45febdc-b2c9-470b-a443-9946b81ce275)
+![image](https://github.com/pranjal12-web/zkpfl/assets/67697534/08b2336e-61d5-4add-9ed7-df8a58c894c6)
+![image](https://github.com/pranjal12-web/zkpfl/assets/67697534/ff7a501b-4a0f-4f61-b2f4-e9eecb7ca994)
+
+
+
+
