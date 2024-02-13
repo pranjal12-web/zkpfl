@@ -31,16 +31,16 @@ type Option<K> = K | undefined;
 
 export interface ContractState {
   administrator: BlockchainAddress;
-  averageSalaryResult: Option<number>;
+  averageWeightsResult: Option<number>;
   numEmployees: Option<number>;
 }
 
 export function newContractState(
   administrator: BlockchainAddress,
-  averageSalaryResult: Option<number>,
+  averageWeightResult: Option<number>,
   numEmployees: Option<number>
 ): ContractState {
-  return { administrator, averageSalaryResult, numEmployees };
+  return { administrator, averageWeightResult, numEmployees };
 }
 
 function fromScValueContractState(structValue: ScValueStruct): ContractState {
@@ -48,12 +48,12 @@ function fromScValueContractState(structValue: ScValueStruct): ContractState {
     administrator: BlockchainAddress.fromBuffer(
       structValue.getFieldValue("administrator")!.addressValue().value
     ),
-    averageSalaryResult: structValue
-      .getFieldValue("average_salary_result")!
+    averageWeightResult: structValue
+      .getFieldValue("average_weight_result")!
       .optionValue()
       .valueOrUndefined((sc1) => sc1.asNumber()),
     numEmployees: structValue
-      .getFieldValue("num_employees")!
+      .getFieldValue("num_clients")!
       .optionValue()
       .valueOrUndefined((sc2) => sc2.asNumber()),
   };
@@ -83,7 +83,7 @@ export function initialize(): Buffer {
   return fnBuilder.getBytes();
 }
 
-export function computeAverageSalary(): Buffer {
-  const fnBuilder = new FnRpcBuilder("compute_average_salary", fileAbi.contract);
+export function computeAverageWeights(): Buffer {
+  const fnBuilder = new FnRpcBuilder("compute_average_weights", fileAbi.contract);
   return fnBuilder.getBytes();
 }

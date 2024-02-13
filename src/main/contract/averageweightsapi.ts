@@ -24,7 +24,7 @@ import {
 } from "@partisiablockchain/zk-client";
 import { Buffer } from "buffer";
 import { TransactionApi } from "../client/TransactionApi";
-import { computeAverageSalary } from "./AverageSalaryGenerated";
+import { computeAverageSalary } from "./averageweights";
 import { getContractAddress } from "../AppState";
 
 /**
@@ -34,7 +34,7 @@ import { getContractAddress } from "../AppState";
  * The implementation uses the AverageSalaryApi to send transactions, and ABI and engine keys for the contract to be
  * able to build the RPC for the add salary transaction.
  */
-export class AverageSalaryApi {
+export class AverageWeightsApi {
   private readonly transactionApi: TransactionApi;
   private readonly sender: BlockchainAddress;
   private readonly abi: ContractAbi;
@@ -56,13 +56,13 @@ export class AverageSalaryApi {
    * Build and send add salary secret input transaction.
    * @param amount number of tokens to send
    */
-  readonly addSalary = (amount: number) => {
+  readonly addWeights = (amount: number) => {
     const address = getContractAddress();
     if (address === undefined) {
       throw new Error("No address provided");
     }
     // First build the RPC buffer that is the payload of the transaction.
-    const rpc = this.buildAddSalaryRpc(amount);
+    const rpc = this.buildAddWeightsRpc(amount);
     // Then send the payload via the transaction API.
     return this.transactionApi.sendTransactionAndWait(address, rpc, 100_000);
   };
@@ -75,7 +75,7 @@ export class AverageSalaryApi {
     if (address === undefined) {
       throw new Error("No address provided");
     }
-    const rpc = computeAverageSalary();
+    const rpc = computeAverageWeights();
     return this.transactionApi.sendTransactionAndWait(address, rpc, 10_000);
   };
 
@@ -83,13 +83,13 @@ export class AverageSalaryApi {
    * Build the RPC payload for the add salary transaction.
    * @param amount the salary
    */
-  private readonly buildAddSalaryRpc = (amount: number): Buffer => {
+  private readonly buildAddWeightsRpc = (amount: number): Buffer => {
     // First build the public inputs
-    const fnBuilder = new FnRpcBuilder("add_salary", this.abi);
+    const fnBuilder = new FnRpcBuilder("add_weights", this.abi);
     const additionalRpc = fnBuilder.getBytes();
 
     // Then build the secret input
-    const secretInputBuilder = ZkInputBuilder.createZkInputBuilder("add_salary", this.abi);
+    const secretInputBuilder = ZkInputBuilder.createZkInputBuilder("add_weights", this.abi);
     secretInputBuilder.addI32(amount);
     const compactBitArray = secretInputBuilder.getBits();
 
