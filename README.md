@@ -4,7 +4,7 @@
 
 # Introduction
 
-zkPFL stands for Zero Knowledfe based Differentially Private Federated learning. It is a unique way to train DL models utilising blockchain, decentralised computing & Zero-Knowledge proofs for enhanced security & faster computations based on trustlessness & ultra-privacy.
+zkPFL stands for Zero Knowledge based Differentially Private Federated learning. It is a unique way to train DL models utilising blockchain, decentralised computing & Zero-Knowledge proofs for enhanced security & faster computations based on trustlessness & ultra-privacy.
 
 # Federated Learning
 
