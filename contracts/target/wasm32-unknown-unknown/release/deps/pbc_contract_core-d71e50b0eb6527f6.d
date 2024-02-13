@@ -1,0 +1,10 @@
+C:\Users\HP\Documents\SmartContract\SmartContract\target\wasm32-unknown-unknown\release\deps\libpbc_contract_core-d71e50b0eb6527f6.rmeta: C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\lib.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\function_name.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\shortname.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\leb128.rs
+
+C:\Users\HP\Documents\SmartContract\SmartContract\target\wasm32-unknown-unknown\release\deps\libpbc_contract_core-d71e50b0eb6527f6.rlib: C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\lib.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\function_name.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\shortname.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\leb128.rs
+
+C:\Users\HP\Documents\SmartContract\SmartContract\target\wasm32-unknown-unknown\release\deps\pbc_contract_core-d71e50b0eb6527f6.d: C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\lib.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\function_name.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\shortname.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\leb128.rs
+
+C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\lib.rs:
+C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\function_name.rs:
+C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\shortname.rs:
+C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\leb128.rs:

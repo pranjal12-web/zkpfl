@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>zkpfl</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="/conf/config.js"></script>
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    body>.pure-g {
+      /* max-width: 1200px; */
+      width: 100%;
+      height: 1200px;
+      /* height:  1200px; */
+
+      margin: auto;
+      background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+
+
+      /* background-image: url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707706800&semt=sph'); */
+    }
+
+    div {
+      margin-bottom: 5px;
+    }
+
+    .loader {
+      border: 4px solid #f3f3f3;
+      /* Light grey */
+      border-top: 4px solid #3498db;
+      /* Blue */
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 2s linear infinite;
+    }
+
+    .modalContainer {
+      display: none;
+    }
+
+    .modalContainer.visible {
+      display: block;
+      /* Show the modal when it has the "visible" class */
+    }
+
+
+    .userpaymentModalContent {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      z-index: 999;
+    }
+    .clientpaymentModalContent {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      z-index: 999;
+    }
+
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Translucent black */
+      z-index: 998;
+      /* Ensure the overlay appears below the modal */
+    }
+
+
+    .usertabs {
+      display: none;
+    }
+
+    .usertabs.visible {
+      display: flex;
+      gap: 10px;
+      /* Show the modal when it has the "visible" class */
+    }
+
+    .users {
+      display: none;
+    }
+
+    .users.visible {
+      display: flex;
+
+      /* Show the modal when it has the "visible" class */
+    }
+
+    .clients {
+      display: none;
+    }
+
+    .clients.visible {
+      display: flex;
+
+      /* Show the modal when it has the "visible" class */
+    }
+
+    .clienttabs {
+      display: none;
+    }
+
+    .clienttabs.visible {
+      display: flex;
+      gap: 10px;
+      /* Show the modal when it has the "visible" class */
+    }
+
+    .paymentModalContent {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid black;
+      display: none;
+      /* Initially hidden */
+    }
+
+    .visible {
+      display: block;
+      /* Show the elements */
+    }
+
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h1>A Federated learning network built on Multi party Computation</h1>
+
+
+
+      
+      <div>
+        <h2>Account</h2>
+        <div id="connection-status">
+          <p>Currently not logged in.</p>
+        </div>
+
+        <div id="private-key-connect">
+          <form onSubmit="return false;" class="pure-form">
+            <input
+              class="pure-button pure-button-primary"
+              id="private-key-connect-btn"
+              type="submit"
+              value="Login using private key" />
+            <input id="private-key-value" name="private-key-value" type="password" />
+          </form>
+        </div>
+
+        <div id="wallet-connect">
+          <form class="pure-form">
+            <input
+              class="pure-button pure-button-primary"
+              id="wallet-connect-btn"
+              type="button"
+              value="Login using MPC Wallet" />
+          </form>
+        </div>
+
+        <div id="metamask-connect">
+          <form>
+            <input
+              class="pure-button pure-button-primary"
+              id="metamask-connect-btn"
+              type="button"
+              value="Login using MetaMask snap" />
+          </form>
+        </div>
+
+        <div id="wallet-disconnect" class="hidden">
+          <form>
+            <input
+              class="pure-button pure-button-primary"
+              id="wallet-disconnect-btn"
+              type="button"
+              value="Logout" />
+          </form>
+        </div>
+      </div>
+      <div id="contract-interaction" class="hidden">
+      </div>
+
+      <!-- <button class ="sendEthButton">sendeth</button>
+      <div id="transactionHashContainer"></div> -->
+
+      <div class="title">
+        <div class="titleDiv">
+          <h1>Who are You?</h1>
+          <button class="actionButton" id="user">Login as User </button>
+
+          <button id="client">
+            Login as a Client
+          </button>
+
+        </div>
+      </div>
+
+      <h1 class="users">User Dashboard</h1>
+      <div class="usertabs">
+
+        <button class="button" id="create">Create New Task</button>
+        <div class="tab" id="ongoing">Ongoing</div>
+        <div class="tab" id="Completed">Completed</div>
+        <div class="tab" id="Payment">Payment History</div>
+      </div>
+
+      <div class="modalContainer">
+        <div class="modalTitle">Create a new session</div>
+        <div class="modalContent">
+          <div class="modalContentItem">
+            Session Name
+            <input class="modalContentItemInput" placeholder="" value="" id="Session-name">
+          </div>
+          <div class="modalContentItem">
+            Model Type
+            <select class="modalContentItemSelect" id="model-type">
+              <option value="CNN">CNN</option>
+              <option value="RNN">RNN</option>
+              <option value="MLP">MLP</option>
+            </select>
+          </div>
+          <div class="modalContentItem">
+            No. of Clients
+            <input class="modalContentItemInput" placeholder="" value="" id="clients">
+          </div>
+          <div class="modalContentItem">
+            No. of Layers
+            <input class="modalContentItemInput" placeholder="" value="" id="layer">
+          </div>
+          <div class="modalContentItem">
+            Activation Function
+            <select class="modalContentItemSelect" id="activationFunction">
+              <option value="Sigmoid">Sigmoid</option>
+              <option value="ReLU">ReLU</option>
+              <option value="Softmax">Softmax</option>
+            </select>
+          </div>
+          <div class="modalContentItem">
+            Optimizer
+            <select class="modalContentItemSelect" id="Optimizer">
+              <option value="SGD">SGD</option>
+              <option value="Adam">Adam</option>
+              <option value="Adagrad">Adagrad</option>
+            </select>
+          </div>
+          <div class="modalContentItem">
+            Desired Accuracy
+            <input class="modalContentItemInput" placeholder="in %" value="" id="accuracy">
+          </div>
+          <input class="modalInputFile" type="file" id="file">
+        </div>
+        <div class="modalButtonGroup">
+          <button class="StartSession">Start Session</button>
+        </div>
+      </div>
+
+      <div class="paymentModalContainer">
+        <!-- <div class="paymentModalTitle">Payment</div> -->
+
+        <div class="userpaymentModalContent">
+          <div class="paymentModalContentItem">
+            <div class="paymentModalContentItemLabel">
+              <!-- IoWarningOutline size={40} -->
+              <svg width="40" height="40" viewBox="0 0 24 24">
+                <!-- Icon content -->
+              </svg>
+              <div>
+                You need to pay a base fees for training your model. You will be charged an additional fees of 0.01ETH per epoch. You will be charged a gas fee for the transaction.
+              </div>
+            </div>
+          </div>
+          <div class="paymentModalContentItem">
+            <div class="paymentModalContentItemValue">
+              Base Fees: 0.05 Eth
+            </div>
+            <div>Protocol Fees: 0.0002ETH</div>
+          </div>
+
+
+          <div class="paymentModalButtonGroup">
+            <button class="paymentModalDepositButton" id="userPayment-btn">Pay Now</button>
+            <button class="Close" id="userClose-btn">Close</button>
+            <div id="UsertransactionHashContainer"></div>
+          </div>
+        </div>
+
+
+        <!-- login as a client: -->
+        <div class="clientpaymentModalContent">
+          <div class="paymentModalContentItem">
+            <div class="paymentModalContentItemLabel">
+              <!-- IoWarningOutline size={40} -->
+              <svg width="40" height="40" viewBox="0 0 24 24">
+                <!-- Icon content -->
+              </svg>
+              <div>
+                In order to participate in the network, you need to stake 0.1 ETH into the network to ensure it's economic security. Any malicious activity will result in slashing of your stake.
+              </div>
+            </div>
+          </div>
+          <div class="paymentModalContentItem">
+            <div class="paymentModalContentItemValue">
+              Staking Amount:0.1 Eth
+            </div>
+          </div>
+
+          <div class="paymentModalButtonGroup">
+            <button class="paymentModalDepositButton" id="clientPayment-btn">Pay Now</button>
+            <button class="Close" id="clientClose-btn">Close</button>
+            <div id="ClienttransactionHashContainer"></div>
+          </div>
+        </div>
+
+        <h1 class="clients">Client Dashboard</h1>
+        <div class="clienttabs">
+          <button class="button" id="pending">Pending</button>
+          <div class="tab" id="ongoing">Ongoing</div>
+          <div class="tab" id="Completed">Completed</div>
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+</body>
+
+</html>

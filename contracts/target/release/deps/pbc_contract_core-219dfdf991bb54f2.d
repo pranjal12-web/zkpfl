@@ -1,0 +1,10 @@
+C:\Users\HP\Documents\SmartContract\SmartContract\target\release\deps\libpbc_contract_core-219dfdf991bb54f2.rmeta: C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\lib.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\function_name.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\shortname.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\leb128.rs
+
+C:\Users\HP\Documents\SmartContract\SmartContract\target\release\deps\libpbc_contract_core-219dfdf991bb54f2.rlib: C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\lib.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\function_name.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\shortname.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\leb128.rs
+
+C:\Users\HP\Documents\SmartContract\SmartContract\target\release\deps\pbc_contract_core-219dfdf991bb54f2.d: C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\lib.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\function_name.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\shortname.rs C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\leb128.rs
+
+C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\lib.rs:
+C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\function_name.rs:
+C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\shortname.rs:
+C:\Users\HP\.cargo\git\checkouts\contract-sdk-5aaffd6b909c988a\6058c61\pbc_contract_core\src\leb128.rs:
