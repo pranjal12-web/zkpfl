@@ -77,7 +77,9 @@ We plan to continue the project.
 ![image](https://github.com/pranjal12-web/zkpfl/assets/67697534/1f6450b8-7a08-45eb-98d7-830185394f71)
 ![image](https://github.com/pranjal12-web/zkpfl/assets/67697534/b45febdc-b2c9-470b-a443-9946b81ce275)
 ![image](https://github.com/pranjal12-web/zkpfl/assets/67697534/08b2336e-61d5-4add-9ed7-df8a58c894c6)
-![image](https://github.com/pranjal12-web/zkpfl/assets/67697534/ff7a501b-4a0f-4f61-b2f4-e9eecb7ca994)
+![image](https://github.com/pranjal12-web/zkpfl/assets/67697534/646b6e1a-6201-498e-a62a-7c9f99a4ceca)
+
+
 
 
 
