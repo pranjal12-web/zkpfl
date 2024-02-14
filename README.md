@@ -70,7 +70,7 @@ Alos, the need for computing power at everyone's end can also be eased up as lar
 We plan to continue the project. 
 
 * We plan to build a completely smooth UI that's much easier to use & a better version of the current one.
-* 
+
 * We'll go through more edge cases & increase the type of model variety that can be trained. We also plan to import the server to GoLang for decreasing latency. We wish to collaborate with Partisia for helping us to make this idea come to life utilising Partisia Blockchain's ecosystem.
 
 # This is how our project looks like:
